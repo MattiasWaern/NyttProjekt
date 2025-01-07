@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nytt Projekt</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
         <nav class="navbar-container">
+            <button class="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="navbar-items">
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#MyBooks">My Books</a></li>
                 <li><a href="#Browse">Browse</a></li>
                 <li><a href="#Community">Community</a></li>
             </ul>
+
+            <form action="/search" method="GET">
+                <div class="search-container">
+                    <input type="text" placeholder="Search books or Authors" class="search-bar">
+                    <i class="fas fa-search"></i>
+                </div>
+            </form>
+
         </nav>
     </header>
-
 
     <main>
         

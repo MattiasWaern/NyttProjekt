@@ -2,35 +2,147 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    
 }
 
-header{
-    position: relative;
+header {
+    display: flex;
+    justify-content: center; /* Centrera innehållet horisontellt */
+    align-items: center; /* Centrera innehållet vertikalt */
     width: 100%;
-    height: 100px;
     background-color: aqua;
     z-index: 1000;
+    height: 69px;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrera horisontellt */
+    gap: 45px;
+    width: 100%; /* Sträck ut hela bredden */
+    max-width: 1200px; /* Valfri maxbredd för att förhindra för mycket stretch */
+    position: relative;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    display: none; /* Döljs bara på större skärmar */
+    z-index: 1100; /* Säkerställer att knappen alltid ligger ovanför menyn */
+    position: absolute; /* Placera hamburger-ikonen till vänster */
+    left: 20px; /* Flytta den en bit från kanten */
+}
+
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 45px;
+    justify-content: center; /* Centrera menyn */
+}
+
+.navbar-items li {
+    font-size: 20px;
+}
+
+/* Search-bar */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Containern tar upp hela bredden */
+}
+
+.search-bar {
+    flex: 1; /* Gör att den tar upp allt tillgängligt utrymme */
+    padding: 10px 80px 10px 10px; /* Utrymme för ikonen */
+    border: 1px solid #ccc;
+    font-size: 15px;
+    border-radius: 5px; /* Snyggare kanter */
+}
+
+.search-container i {
+    position: absolute; /* Placerar ikonen ovanpå fältet */
+    right: 10px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Responsiv Design För Header */
+
+@media (max-width: 393px) {
+    header {
+        display: flex;
+        flex-direction: column; /* Ordna innehållet i en kolumn */
+        align-items: center; /* Centrera innehållet horisontellt */
+    }
+
+    .navbar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrera innehållet horisontellt */
+        width: 100%;
+    }
+
+    .navbar-items {
+        display: flex; /* Behåll flex för layout */
+        flex-direction: column; /* Meny i en kolumn */
+        justify-content: center; /* Centrera vertikalt */
+        align-items: center; /* Centrera horisontellt */
+        background-color: aqua;
+        position: absolute;
+        top: 54px;
+        right: 0;
+        width: 100%;
+        padding: 0; /* Ta bort padding i stängt läge */
+        text-align: center;
+        gap: 10px;
+
+        /* För att dölja menyn helt */
+        max-height: 0; /* Initialt stängd */
+        line-height: 0; /* Förhindra att texten syns */
+        opacity: 0; /* Gör texten osynlig */
+        overflow: hidden; /* Dölj innehåll som inte ryms */
+        transition: max-height 0.5s ease, padding 0.2s ease, opacity 0.2s ease;
+    }
+
+    .navbar-items.active {
+        max-height: 300px; /* Justera efter innehållets höjd */
+        padding: 10px; /* Lägg till padding igen */
+        line-height: normal; /* Återställ radavstånd */
+        opacity: 1; /* Gör menyn synlig */
+    }
+
+    .hamburger {
+        display: block;
+        margin: 10px 0; /* Skapa utrymme ovanför och under */
+        align-self: center; /* Centrera hamburgarikonen horisontellt */
+    }
+
+    .search-container {
+        width: 90%; /* Gör sökfältet mindre på mindre skärmar */
+    }
+
+    .search-bar {
+        flex: 1; /* Gör att den tar upp allt tillgängligt utrymme */
+        padding: 10px 40px 10px 10px; /* Utrymme för ikonen */
+        border: 1px solid #ccc;
+        font-size: 15px;
+        border-radius: 5px; /* Snyggare kanter */
+        margin-left: 40px;
+    }
+
 }
 
 main{
+    display: flex;
     position: relative;
     width: 100%;
-    height: 853px;
+    height: 100%;
     background-color: beige;
     z-index: 1;
 }
 
-.navbar-container{
-   padding: 10px;
-}
-
-.navbar-items{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style: none;
-}
-
-.navbar-items li{
-   font-size: 20px;
-}
